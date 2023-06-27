@@ -2,12 +2,6 @@
 
 cd "$(dirname "$0")/.."
 
-if [[ "" == "$(dpkg-query -W --showformat='${Status}\n' python3.6|grep "install ok installed")" ]]; then
-    sudo add-apt-repository ppa:deadsnakes/ppa
-    sudo apt-get update
-    sudo apt-get install python3.6
-fi
-
-python3.6 -m venv env
+python3 -m venv env
 ./env/bin/pip install --upgrade pip
 ./env/bin/pip install -e .[dev]
